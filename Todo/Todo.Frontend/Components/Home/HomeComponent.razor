@@ -1,0 +1,17 @@
+@page "/"
+
+@layout MainLayout
+
+@inject NavigationManager NavigationManager;
+
+<div class="pt-5">
+
+    <div class="w-100 mt-5 pt-5">
+        <h1 class="text-center">The ToDo App</h1>
+        <div class="text-center mt-3">
+            <button class="btn btn-outline-success" @onclick="LoadLoginPage">Zaloguj się</button>
+            <button class="btn btn-outline-secondary" @onclick="LoadRegisterPage">Zarejestruj się</button>
+        </div>
+    </div>
+
+</div>

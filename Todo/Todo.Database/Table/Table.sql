@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Table]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(MAX) NOT NULL, 
+    [CreatedAt] DATETIME2 NOT NULL DEFAULT GETDATE(), 
+    [UserId] INT NOT NULL, 
+    CONSTRAINT [FK_UserId_Account] FOREIGN KEY ([UserId]) REFERENCES [Account]([Id])
+)

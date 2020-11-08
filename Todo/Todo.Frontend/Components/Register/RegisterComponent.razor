@@ -1,0 +1,54 @@
+﻿@using Todo.Frontend.Control.Input
+@using Todo.Frontend.Fluent
+@using Todo.Core.Command.Account
+
+@inherits Fluxor.Blazor.Web.Components.FluxorLayout
+
+@layout MainLayout
+
+@inject MediatR.IMediator mediator
+@inject Microsoft.Extensions.Logging.ILogger<RegisterComponent> Logger
+
+@page "/register"
+
+<div class="row">
+    <div class="offset-3 col-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Zarejestruj się</h5>
+                <div>
+                    <EditForm Model="form" OnValidSubmit="Register">
+                        <FluentValidationValidator />
+
+                        <div class="my-2">
+                            <TInputComponent Title="Login" @bind-Value="form.Login" />
+                        </div>
+
+                        <div class="my-2 row">
+                            <div class="col-6">
+                                <TInputComponent Title="Hasło" @bind-Value="form.Password" Type="password" />
+                            </div>
+                            <div class="col-6">
+                                <TInputComponent Title="Powtórz hasło" @bind-Value="form.RepeatPassword" Type="password" />
+                            </div>
+                        </div>
+
+                        <div class="my-2">
+                            <TInputComponent Title="Adres e-mail" @bind-Value="form.Email" />
+                        </div>
+
+                        <div>
+                            @if (true)
+                            {
+                                <div class="float-left">
+                                    <ValidationSummary />
+                                </div>
+                            }
+                            <button class="btn btn-success float-right" type="submit">Zarejestruj się</button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+@using Todo.Frontend.Core.State.Feature.TestFeature.State
+@using Todo.Frontend.Core.State
+@using Todo.Frontend.Control.Input 
+
+@inherits Fluxor.Blazor.Web.Components.FluxorLayout
+
+@layout MainLayout
+
+@inject IState<TestState> State
+@inject StateFacade Facade
+
+@page "/login"
+
+<div class="row">
+    <div class="offset-4 col-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Zaloguj się</h5>
+                <div>
+                    <EditForm Model="form" OnValidSubmit="Login">
+                        <FluentValidationValidator />
+
+                        <div class="my-2">
+                            <TInputComponent Title="Login" @bind-Value="form.Login" />
+                        </div>
+
+                        <div>
+                            <ValidationMessage For="@(() => form.Login)" />
+                        </div>
+
+                        <div class="my-2">
+                            <TInputComponent Title="Hasło" @bind-Value="form.Password" Type="password" />
+                        </div>
+
+                        <ValidationMessage For="@(() => form.Password)" />
+                        
+                        <div>
+                            @if (showMsg)
+                            {
+                                <div class="float-left" style="color:red">Podano nie prawidłowe dane do logowania</div>
+                            }
+                            <button class="btn btn-success float-right" type="submit">Zaloguj się</button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

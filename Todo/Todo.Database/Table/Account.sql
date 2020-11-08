@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Account]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Login] NVARCHAR(MAX) NOT NULL, 
+    [Password] NVARCHAR(MAX) NOT NULL, 
+    [CreatedAt] DATETIME2 NOT NULL DEFAULT GETDATE(), 
+    [Email] NVARCHAR(MAX) NOT NULL
+)

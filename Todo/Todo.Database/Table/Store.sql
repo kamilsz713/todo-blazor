@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Store]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(MAX) NOT NULL, 
+    [TableId] INT NOT NULL, 
+    [CreatedAt] DATETIME2 NOT NULL DEFAULT GETDATE(), 
+    CONSTRAINT [FK_StoreTableId_Table] FOREIGN KEY ([TableId]) REFERENCES [Table]([Id])
+)

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+    db:
+        ports:
+            - "1433:1433"
+        build:
+            context: ./Todo
+            dockerfile: db.Dockerfile
+    frontend:
+        ports:
+            - "80:80"
+        build:
+            context: ./Todo
+            dockerfile: frontend.Dockerfile
+    backend:
+        environment: 
+            - ASPNETCORE_URLS=http://+:80
+        ports:
+            - "11000:80"
+        build:
+            context: ./Todo
+            dockerfile: backend.Dockerfile
