@@ -4,10 +4,9 @@ using System.Text;
 
 namespace Todo.Core.Entity
 {
-    public class AccountRole
+    public class Role
     {
         public int Id { get; set; }
-        public int AccountId { get; set; }
-        public int RoleId { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -6,14 +6,14 @@ using Todo.Core.Entity;
 
 namespace Todo.Backend.Infrastructure.Auth
 {
-    public class PasswordHasher : IPasswordHasher<Account>
+    public class PasswordHasher
     {
-        public string HashPassword(Account user, string password)
+        public static string HashPassword(string password)
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
-        public PasswordVerificationResult VerifyHashedPassword(Account user, string hashedPassword, string providedPassword)
+        public static PasswordVerificationResult VerifyHashedPassword(string hashedPassword, string providedPassword)
         {
             var res = BCrypt.Net.BCrypt.Verify(providedPassword, hashedPassword);
 

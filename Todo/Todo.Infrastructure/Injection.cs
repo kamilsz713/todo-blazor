@@ -19,13 +19,11 @@ namespace Todo.Backend.Infrastructure
         public static void AddInfrastructure(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IAccountService, AccountService>();
+            serviceCollection.AddTransient<IAccountRoleRepository, AccountRoleRepository>();
+            serviceCollection.AddTransient<IRoleRepository, RoleRepository>();
             serviceCollection.AddTransient<IAccountRepository, AccountRepository>();
 
             serviceCollection.AddSqlFactory(con => con.GetConnectionString("Database"));
-
-            serviceCollection.AddTransient<IUserStore<Account>, UserStore>();
-            serviceCollection.AddTransient<IRoleStore<AccountRole>, RoleStore>();
-            serviceCollection.AddTransient<IPasswordHasher<Account>, PasswordHasher>();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Todo.Core.Command.Account;
 using Todo.Core.Entity;
+using Todo.Core.Query.Account.LoginQuery;
 using Todo.Core.Response.Account;
 
 namespace Todo.Core.Service
@@ -15,5 +16,6 @@ namespace Todo.Core.Service
         Task<bool> CheckIfLoginExists(string login, CancellationToken cancellationToken);
         Task<bool> CheckIfEmailExists(string email, CancellationToken cancellationToken);
         Task<RegisteredAccountInfo> RegisterAccount(CreateAccountCommand account, CancellationToken cancellationToken);
+        Task<AuthInfo> Login(LoginQuery loginQuery, CancellationToken cancellationToken);
     }
 }

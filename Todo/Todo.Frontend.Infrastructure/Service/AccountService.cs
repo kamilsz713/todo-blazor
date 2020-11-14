@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Todo.Core.Command.Account;
 using Todo.Core.Entity;
+using Todo.Core.Query.Account.LoginQuery;
 using Todo.Core.Response.Account;
 using Todo.Core.Service;
 
@@ -37,6 +38,11 @@ namespace Todo.Frontend.Infrastructure.Service
         public async Task<Account> GetUserByLogin(string login, CancellationToken cancellationToken)
         {
             logger.Log(LogLevel.Debug, "GetUserByLogin");
+            throw new NotImplementedException();
+        }
+
+        public Task<AuthInfo> Login(LoginQuery loginQuery, CancellationToken cancellationToken)
+        {
             throw new NotImplementedException();
         }
 

@@ -1,13 +1,16 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Todo.Core.Command.Account;
+using Todo.Core.Entity;
 using Todo.Core.Query.Account.CheckAccountEmailExists;
 using Todo.Core.Query.Account.CheckAccountLoginExists;
+using Todo.Core.Query.Account.LoginQuery;
 using Todo.Core.Request.Account;
 
 namespace Todo.Backend.Controllers
@@ -23,6 +26,13 @@ namespace Todo.Backend.Controllers
         {
             _mediator = mediator;
             _mapper = mapper;
+        }
+
+        [HttpPost]
+        [Route("Login")]
+        public async Task<IActionResult> Login(LoginQuery loginFormQuery)
+        {
+            return Ok(await _mediator.Send(loginFormQuery));
         }
 
         [HttpPost]
