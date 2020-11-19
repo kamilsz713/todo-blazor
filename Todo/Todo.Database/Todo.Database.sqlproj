@@ -73,5 +73,7 @@
     <Build Include="Procedure\Account\GetAccount.sql" />
     <Build Include="Function\Account\CheckAccountEmailExists.sql" />
     <Build Include="Function\Account\CheckAccountLoginExists.sql" />
+    <Build Include="Table\AccountRole.sql" />
+    <Build Include="Table\Role.sql" />
   </ItemGroup>
 </Project>

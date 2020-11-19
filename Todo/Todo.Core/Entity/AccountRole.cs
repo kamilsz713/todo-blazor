@@ -6,8 +6,8 @@ namespace Todo.Core.Entity
 {
     public class AccountRole
     {
-        public int Id { get; set; }
-        public int AccountId { get; set; }
-        public int RoleId { get; set; }
+        public Guid Id { get; set; }
+        public Guid AccountId { get; set; }
+        public Guid RoleId { get; set; }
     }
 }

@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Frontend.Core", "Todo.
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Todo.Database", "Todo.Database\Todo.Database.sqlproj", "{92C7A35B-F65B-4C7B-ADFB-5F3B99AF5E73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Frontend.Infrastructure", "Todo.Frontend.Infrastructure\Todo.Frontend.Infrastructure.csproj", "{60E8055C-1B85-4821-A9C1-8DD4A5611B74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Frontend.Infrastructure", "Todo.Frontend.Infrastructure\Todo.Frontend.Infrastructure.csproj", "{60E8055C-1B85-4821-A9C1-8DD4A5611B74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

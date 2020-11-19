@@ -1,4 +1,6 @@
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 using Fluxor;
 using Fluxor.Blazor.Web.Components;
 using Microsoft.AspNetCore.Components;
@@ -6,6 +8,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Todo.Core.Query.Account.LoginQuery;
 using Todo.Frontend.Core.State;
 using Todo.Frontend.Core.State.Feature.TestFeature.State;
+using Todo.Frontend.Infrastructure.Auth;
 
 namespace Todo.Frontend.Components.Login
 {
@@ -20,9 +23,15 @@ namespace Todo.Frontend.Components.Login
             Facade.LoadTest();
         }
 
-        public void Login()
+        public async Task Login()
         {
             showMsg = true;
+
+            var res = await AccountService.Login(form, CancellationToken.None);
+
+            await (JwtAuthenticationStateProvider as JwtAuthenticationStateProvider).MarkAsAuthenticated(res.Token);
+
+            NavigationManager.NavigateTo("/test");
         }
     }
 }

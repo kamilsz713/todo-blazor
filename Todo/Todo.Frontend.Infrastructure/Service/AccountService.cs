@@ -41,9 +41,9 @@ namespace Todo.Frontend.Infrastructure.Service
             throw new NotImplementedException();
         }
 
-        public Task<AuthInfo> Login(LoginQuery loginQuery, CancellationToken cancellationToken)
+        public async Task<AuthInfo> Login(LoginQuery loginQuery, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return await httpClient.PostJsonAsync<AuthInfo>("Account/Login", loginQuery);
         }
 
         public async Task<RegisteredAccountInfo> RegisterAccount(CreateAccountCommand account, CancellationToken cancellationToken)

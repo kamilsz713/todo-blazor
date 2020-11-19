@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -22,8 +23,15 @@ namespace Todo.Backend.Infrastructure
             serviceCollection.AddTransient<IAccountRoleRepository, AccountRoleRepository>();
             serviceCollection.AddTransient<IRoleRepository, RoleRepository>();
             serviceCollection.AddTransient<IAccountRepository, AccountRepository>();
+            serviceCollection.AddTransient<JwtProvider>();
 
             serviceCollection.AddSqlFactory(con => con.GetConnectionString("Database"));
+
+            serviceCollection.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer();
+
+            serviceCollection.ConfigureOptions<JwtOptions>();
+
         }
     }
 }

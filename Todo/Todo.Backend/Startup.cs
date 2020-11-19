@@ -22,6 +22,8 @@ using Microsoft.AspNetCore.Identity;
 using Todo.Backend.Infrastructure.Auth;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography;
+using System.IO;
+using System.Text;
 
 namespace Todo.Backend
 {
@@ -45,7 +47,7 @@ namespace Todo.Backend
                 var rsa = RSA.Create();
 
                 rsa.ImportRSAPublicKey(
-                    source: Convert.FromBase64String(Configuration["PublicKey"]),
+                    source: Convert.FromBase64String(File.ReadAllText("public.key")),
                     bytesRead: out int _
                     );
 
@@ -62,29 +64,8 @@ namespace Todo.Backend
 
             services.AddCore();
 
-            services.AddIdentity<Account, AccountRole>();
-
             services.AddInfrastructure();
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                    .AddJwtBearer("Asymmetric", options =>
-                    {
-                        SecurityKey rsa = services.BuildServiceProvider().GetRequiredService<RsaSecurityKey>();
-
-                        options.IncludeErrorDetails = true;
-
-                        options.TokenValidationParameters = new TokenValidationParameters
-                        {
-                            IssuerSigningKey = rsa,
-                            ValidAudience = "https://localhost:4200",
-                            ValidIssuer = "https://localhost:11000",
-                            RequireSignedTokens = true,
-                            RequireExpirationTime = true,
-                            ValidateLifetime = true,
-                            ValidateAudience = true,
-                            ValidateIssuer = true
-                        };
-                    });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

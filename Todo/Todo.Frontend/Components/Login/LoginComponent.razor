@@ -1,6 +1,8 @@
 @using Todo.Frontend.Core.State.Feature.TestFeature.State
 @using Todo.Frontend.Core.State
-@using Todo.Frontend.Control.Input 
+@using Todo.Frontend.Control.Input
+@using Todo.Core.Service
+@using Todo.Frontend.Infrastructure.Auth
 
 @inherits Fluxor.Blazor.Web.Components.FluxorLayout
 
@@ -8,6 +10,9 @@
 
 @inject IState<TestState> State
 @inject StateFacade Facade
+@inject IAccountService AccountService
+@inject AuthenticationStateProvider JwtAuthenticationStateProvider
+@inject NavigationManager NavigationManager
 
 @page "/login"
 
@@ -33,7 +38,7 @@
                         </div>
 
                         <ValidationMessage For="@(() => form.Password)" />
-                        
+
                         <div>
                             @if (showMsg)
                             {

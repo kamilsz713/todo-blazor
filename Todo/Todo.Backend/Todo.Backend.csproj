@@ -22,5 +22,14 @@
       <ProjectReference Include="..\Todo.Infrastructure\Todo.Backend.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="private.key">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="public.key">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 
 </Project>
