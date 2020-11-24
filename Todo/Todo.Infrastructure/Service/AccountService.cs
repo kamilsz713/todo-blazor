@@ -66,7 +66,8 @@ namespace Todo.Backend.Infrastructure.Service
 
             return new AuthInfo
             {
-                Token = token.Token
+                Token = token.Token,
+                Result = true
             };
         }
 

@@ -1,9 +1,14 @@
 ﻿
+@inherits Fluxor.Blazor.Web.Components.FluxorLayout
+
+@layout MainLayout
 @page "/test"
+@inject AuthenticationStateProvider JwtAuthenticationStateProvider
 @attribute [Authorize]
 
 <h3>TestComponent</h3>
 
 @code {
-
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthenticationStateTask { get; set; }
 }

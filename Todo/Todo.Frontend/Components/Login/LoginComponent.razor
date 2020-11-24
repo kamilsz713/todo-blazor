@@ -2,16 +2,15 @@
 @using Todo.Frontend.Core.State
 @using Todo.Frontend.Control.Input
 @using Todo.Core.Service
+@using Todo.Frontend.Core.State.Feature.AuthFeature.State
 @using Todo.Frontend.Infrastructure.Auth
 
 @inherits Fluxor.Blazor.Web.Components.FluxorLayout
 
 @layout MainLayout
 
-@inject IState<TestState> State
+@inject IState<AuthState> State
 @inject StateFacade Facade
-@inject IAccountService AccountService
-@inject AuthenticationStateProvider JwtAuthenticationStateProvider
 @inject NavigationManager NavigationManager
 
 @page "/login"

@@ -25,11 +25,7 @@ namespace Todo.Frontend.Components.Login
 
         public async Task Login()
         {
-            showMsg = true;
-
-            var res = await AccountService.Login(form, CancellationToken.None);
-
-            await (JwtAuthenticationStateProvider as JwtAuthenticationStateProvider).MarkAsAuthenticated(res.Token);
+            Facade.Login(form);
 
             NavigationManager.NavigateTo("/test");
         }

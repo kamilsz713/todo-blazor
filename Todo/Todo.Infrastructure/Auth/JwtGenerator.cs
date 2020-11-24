@@ -52,7 +52,7 @@ namespace Todo.Backend.Infrastructure.Auth
         {
             return new Claim[] 
             {
-                new Claim(ClaimTypes.NameIdentifier, "a")
+                new Claim(ClaimTypes.Name, account.Login)
             };
         }
     }

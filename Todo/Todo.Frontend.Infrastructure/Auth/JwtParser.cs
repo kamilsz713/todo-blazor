@@ -23,7 +23,9 @@ namespace Todo.Frontend.Infrastructure.Auth
             var claims = new List<Claim>();
 
             var jwt = await GetToken();
-            var jsonBytes = ParseBase64WithoutPadding(jwt);
+            Console.WriteLine(jwt);
+            var payload = jwt.Split('.')[1];
+            var jsonBytes = ParseBase64WithoutPadding(payload);
             var keyValuePairs = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes);
 
             claims.AddRange(keyValuePairs.Select(kvp => new Claim(kvp.Key, kvp.Value.ToString())));

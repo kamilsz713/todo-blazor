@@ -20,11 +20,11 @@ namespace Todo.Frontend
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:5001") });
+            builder.Services.AddAuthorizationCore();
             builder.Services.AddFluxorStore();
             builder.Services.AddCore();
             builder.Services.AddInfrastructure();
             builder.Services.AddOptions();
-            builder.Services.AddAuthorizationCore();
             await builder.Build().RunAsync();
         }
     }

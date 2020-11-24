@@ -23,17 +23,5 @@
     <ItemGroup>
         <Watch Include="**\*.razor" />
     </ItemGroup>
-    
-    <ItemGroup>
-      <Content Remove="Components\Test\TestComponent.razor" />
-    </ItemGroup>
-    
-    <ItemGroup>
-      <Watch Remove="Components\Test\TestComponent.razor" />
-    </ItemGroup>
-    
-    <ItemGroup>
-      <None Include="Components\Test\TestComponent.razor" />
-    </ItemGroup>
 
 </Project>
